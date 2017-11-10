@@ -1,0 +1,236 @@
+
+
+================================================================
+== Vivado HLS Report for 'sqrt_CORDIC'
+================================================================
+* Date:           Fri Nov 10 14:51:58 2017
+
+* Version:        2017.1 (Build 1846317 on Fri Apr 14 19:19:38 MDT 2017)
+* Project:        sqrt_CORDIC
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu19eg-ffve1924-3-e-es2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.65|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +---------+---------+---------+---------+---------+
+    |      Latency      |      Interval     | Pipeline|
+    |   min   |   max   |   min   |   max   |   Type  |
+    +---------+---------+---------+---------+---------+
+    |  2007001|  2007001|  2007002|  2007002|   none  |
+    +---------+---------+---------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |      Latency      | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  2007000|  2007000|      2007|          -|          -|  1000|    no    |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 6
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 0.60ns
+ST_1: StgValue_7 (2)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap(float* %returnValue) nounwind, !map !269
+
+ST_1: StgValue_8 (3)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecTopModule([12 x i8]* @sqrt_CORDIC_str) nounwind
+
+ST_1: StgValue_9 (4)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecInterface(float* %returnValue, [8 x i8]* @p_str266, i32 0, i32 0, [1 x i8]* @p_str267, i32 0, i32 0, [1 x i8]* @p_str267, [1 x i8]* @p_str267, [1 x i8]* @p_str267, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str267, [1 x i8]* @p_str267)
+
+ST_1: StgValue_10 (5)  [1/1] 0.60ns  loc: sqrt_CORDIC.cpp:22
+:3  br label %1
+
+
+ <State 2>: 1.04ns
+ST_2: i (7)  [1/1] 0.00ns
+:0  %i = phi i10 [ 0, %0 ], [ %i_1, %_ifconv ]
+
+ST_2: exitcond (8)  [1/1] 0.54ns  loc: sqrt_CORDIC.cpp:22
+:1  %exitcond = icmp eq i10 %i, -24
+
+ST_2: empty (9)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1000, i64 1000, i64 1000) nounwind
+
+ST_2: i_1 (10)  [1/1] 1.04ns  loc: sqrt_CORDIC.cpp:24
+:3  %i_1 = add i10 %i, 1
+
+ST_2: StgValue_15 (11)  [1/1] 0.00ns  loc: sqrt_CORDIC.cpp:22
+:4  br i1 %exitcond, label %2, label %_ifconv
+
+ST_2: tmp (13)  [1/1] 0.00ns  loc: sqrt_CORDIC.cpp:24
+_ifconv:0  %tmp = trunc i10 %i_1 to i1
+
+ST_2: input_in_V (14)  [1/1] 0.00ns  loc: sqrt_CORDIC.cpp:25
+_ifconv:1  %input_in_V = call i48 @_ssdm_op_BitConcatenate.i48.i1.i47(i1 %tmp, i47 0)
+
+ST_2: output_out_V (15)  [2/2] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/hls_sqrt_cordic.h:71->sqrt_CORDIC.cpp:27
+_ifconv:2  %output_out_V = call fastcc i25 @cordic_base(i48 %input_in_V) nounwind
+
+ST_2: StgValue_19 (28)  [1/1] 0.00ns  loc: sqrt_CORDIC.cpp:38
+:0  ret void
+
+
+ <State 3>: 0.58ns
+ST_3: output_out_V (15)  [1/2] 0.00ns  loc: /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/hls_sqrt_cordic.h:71->sqrt_CORDIC.cpp:27
+_ifconv:2  %output_out_V = call fastcc i25 @cordic_base(i48 %input_in_V) nounwind
+
+ST_3: tmp_3 (16)  [1/1] 0.58ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:3  %tmp_3 = icmp eq i25 %output_out_V, 0
+
+
+ <State 4>: 8.65ns
+ST_4: dp_s (17)  [1/1] 0.00ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:4  %dp_s = zext i25 %output_out_V to i32
+
+ST_4: dp_1 (18)  [2/2] 8.65ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:5  %dp_1 = uitofp i32 %dp_s to float
+
+
+ <State 5>: 8.65ns
+ST_5: dp_1 (18)  [1/2] 8.65ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:5  %dp_1 = uitofp i32 %dp_s to float
+
+ST_5: res_V_1 (19)  [1/1] 0.00ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:6  %res_V_1 = bitcast float %dp_1 to i32
+
+ST_5: exp_V (20)  [1/1] 0.00ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:7  %exp_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %res_V_1, i32 23, i32 30)
+
+
+ <State 6>: 1.69ns
+ST_6: exp_V_2 (21)  [1/1] 1.00ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:8  %exp_V_2 = add i8 -24, %exp_V
+
+ST_6: p_Result_s (22)  [1/1] 0.00ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:9  %p_Result_s = call i32 @llvm.part.set.i32.i8(i32 %res_V_1, i8 %exp_V_2, i32 23, i32 30) nounwind
+
+ST_6: dp (23)  [1/1] 0.00ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:10  %dp = bitcast i32 %p_Result_s to float
+
+ST_6: p_0_i (24)  [1/1] 0.07ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:11  %p_0_i = select i1 %tmp_3, float 0.000000e+00, float %dp
+
+ST_6: StgValue_31 (25)  [1/1] 0.61ns  loc: sqrt_CORDIC.cpp:28
+_ifconv:12  call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %returnValue, float %p_0_i) nounwind
+
+ST_6: StgValue_32 (26)  [1/1] 0.00ns  loc: sqrt_CORDIC.cpp:22
+_ifconv:13  br label %1
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.605ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('__Val2__') with incoming values : ('v', sqrt_CORDIC.cpp:24) [7]  (0.605 ns)
+
+ <State 2>: 1.04ns
+The critical path consists of the following:
+	'phi' operation ('__Val2__') with incoming values : ('v', sqrt_CORDIC.cpp:24) [7]  (0 ns)
+	'add' operation ('v', sqrt_CORDIC.cpp:24) [10]  (1.04 ns)
+
+ <State 3>: 0.578ns
+The critical path consists of the following:
+	'call' operation ('sqrtX.out.V', /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/hls_sqrt_cordic.h:71->sqrt_CORDIC.cpp:27) to 'cordic_base' [15]  (0 ns)
+	'icmp' operation ('tmp_3', sqrt_CORDIC.cpp:28) [16]  (0.578 ns)
+
+ <State 4>: 8.65ns
+The critical path consists of the following:
+	'uitofp' operation ('dp', sqrt_CORDIC.cpp:28) [18]  (8.65 ns)
+
+ <State 5>: 8.65ns
+The critical path consists of the following:
+	'uitofp' operation ('dp', sqrt_CORDIC.cpp:28) [18]  (8.65 ns)
+
+ <State 6>: 1.69ns
+The critical path consists of the following:
+	'add' operation ('exp.V', sqrt_CORDIC.cpp:28) [21]  (1 ns)
+	'select' operation ('p_0_i', sqrt_CORDIC.cpp:28) [24]  (0.071 ns)
+	fifo write on port 'returnValue' (sqrt_CORDIC.cpp:28) [25]  (0.614 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

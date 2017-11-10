@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'hls::cordic_base&lt;6, false, 1, 0, 48, 25, 0, 0, 0, 0>' (/home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:253:56) into cordic_base." projectName="sqrt_CORDIC" solutionName="solution1" date="2017-11-10T14:51:58.487-0500" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] /home/linsun/Xilinx/Vivado_HLS/2017.1/common/technology/autopilot/hls/dsp/utils/hls_cordic_functions.h:312: variable-indexed range selection may cause suboptimal QoR." projectName="sqrt_CORDIC" solutionName="solution1" date="2017-11-10T14:51:57.848-0500" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

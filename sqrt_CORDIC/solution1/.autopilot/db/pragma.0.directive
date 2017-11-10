@@ -1,0 +1,194 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="CORDIC_rnd_slv" label="">
+<pragma name="INLINE"/>
+</directive>
+<directive functionLabel="" functionName="sqrt_slv" label="">
+<pragma name="INLINE"/>
+</directive>
+<directive functionLabel="" functionName="awgn" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="lfsr128"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="encode" label="">
+<pragma name="PIPELINE">
+<option name="II" value="1"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="encode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="constraint_register"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="encode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="puncture_count"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="encode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="output_valid"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="encode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="output_valid_count"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="encode" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="puncture_register"/>
+<option name="complete" positionalBoolean="type" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="nco" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="startInterrupt"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="nco" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="phaseAcc"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="dual_op_cmpy" label="">
+<pragma name="PIPELINE"/>
+</directive>
+<directive functionLabel="" functionName="nco_ssr" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="sinPhiPre"/>
+<option name="complete" positionalBoolean="type" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="nco_ssr" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="cosPhiPre"/>
+<option name="complete" positionalBoolean="type" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="PIPELINE">
+<option name="II" value="1"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="path_metrics"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="base_count"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="write_and_output_addr"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="traceback_addr"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="block_count"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="decode_state"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="traceback_state"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="decode_bit"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="traceback_bit"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="output_valid_count"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="output_valid"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="norm_reg"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="RESET">
+<option name="variable" positionalBoolean="4" value="norm_sr"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="path_metrics"/>
+<option name="complete" positionalBoolean="type" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="norm_sr"/>
+<option name="complete" positionalBoolean="type" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="DEPENDENCE">
+<option name="variable" value="traceback_memory"/>
+<option name="inter" positionalBoolean="type" value=""/>
+<option name="false" positionalBoolean="dependent" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="DEPENDENCE">
+<option name="variable" value="lifo_memory"/>
+<option name="inter" positionalBoolean="type" value=""/>
+<option name="false" positionalBoolean="dependent" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="input_costs"/>
+<option name="complete" positionalBoolean="type" value=""/>
+<option name="dim" value="0"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="bmu_costs"/>
+<option name="complete" positionalBoolean="type" value=""/>
+<option name="dim" value="0"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="decode" label="">
+<pragma name="ARRAY_PARTITION">
+<option name="variable" positionalBoolean="4" value="add_input"/>
+<option name="complete" positionalBoolean="type" value=""/>
+<option name="dim" value="0"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="sqrt_CORDIC" label="">
+<pragma name="INTERFACE">
+<option name="ap_fifo" positionalBoolean="mode" value=""/>
+<option name="port" positionalBoolean="4" value="returnValue"/>
+</pragma>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>
